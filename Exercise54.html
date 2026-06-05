@@ -1,0 +1,73 @@
+<html>
+    <head>
+        <title> Tiêu đề trang</title>
+        <script>
+            function findMax() {
+                var a = parseFloat(myform.a.value);
+                var b = parseFloat(myform.b.value);
+                var c = parseFloat(myform.c.value);
+                var max = a;
+                if (b > max) {
+                    max = b;
+                }
+                if (c > max) {
+                    max = c;
+                }
+                mydiv.innerHTML="Max is: "+max;
+            }
+            function findMin() {
+                var a = parseFloat(myform.a.value);
+                var b = parseFloat(myform.b.value);
+                var c = parseFloat(myform.c.value);
+                var min = a;
+                if (b < min) {
+                    min = b;
+                }
+                if (c < min) {
+                    min = c;
+                }
+                mydiv.innerHTML="Min is: "+min;
+            }
+            function findSin() {
+                var a = parseFloat(myform.a.value);
+                mydiv.innerHTML="Sin(a) is: "+Math.sin(a);
+            }
+            function findCos() {
+                var a = parseFloat(myform.a.value);
+                mydiv.innerHTML="Cos(a) is: "+Math.cos(a);
+            }
+            function findasupb() {
+                var a = parseFloat(myform.a.value);
+                var b = parseFloat(myform.b.value);
+                mydiv.innerHTML="a^b is: "+Math.pow(a,b);
+            }
+        </script>
+    </head>
+    <body>
+        <form name="myform">
+            <table border="1">
+                <tr>
+                    <td>Input a </td>
+                    <td><input type="number" name="a"></td> 
+                </tr>
+                <tr>
+                    <td>Input b </td>
+                    <td><input type="number" name="b"></td>
+                </tr>
+                <tr>
+                    <td>Input c </td>
+                    <td><input type="number" name="c"></td>
+                </tr>
+                <tr>
+                    <td>Result</td>
+                    <td><div id="mydiv"></div></td>
+                </tr>
+            </table>
+            <button type="button" onclick="findMax()">Find Max</button>
+            <button type="button" onclick="findMin()">Find Min</button>
+            <button type="button" onclick="findSin()">Find Sina</button>
+            <button type="button" onclick="findCos()">Find Cosa</button>
+            <button type="button" onclick="findasupb()">Find a^b</button>
+        </form>
+    </body>
+</html>
