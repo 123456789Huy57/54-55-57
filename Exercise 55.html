@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <title> Tiêu đề trang</title>
+        <script>
+            function findSolution() {
+                var a = parseFloat(myform.a.value);
+                var b = parseFloat(myform.b.value);
+                var c = parseFloat(myform.c.value);
+                var delta = b*b-4*a*c;
+                if (delta<0) {
+                    mydiv.innerHTML="No solution";
+                } else if (delta==0) {
+                    var x=-b/(2*a);
+                    mydiv.innerHTML="Double solution: x="+x;
+                } else {
+                    var x1=(-b+Math.sqrt(delta))/(2*a);
+                    var x2=(-b-Math.sqrt(delta))/(2*a);
+                    mydiv.innerHTML="Two solutions: x1="+x1+" and x2="+x2;
+                }
+            }
+            function Clear() {
+                myform.a.value="";
+                myform.b.value="";
+                myform.c.value="";
+                mydiv.innerHTML="";
+            }
+        </script>
+    </head>
+    <body>
+        <form name="myform">
+            <table border="1">
+                <tr>
+                    <td>Input a </td>
+                    <td><input type="number" name="a"></td> 
+                </tr>
+                <tr>
+                    <td>Input b </td>
+                    <td><input type="number" name="b"></td>
+                </tr>
+                <tr>
+                    <td>Input c </td>
+                    <td><input type="number" name="c"></td>
+                </tr>
+                <tr>
+                    <td>Result</td>
+                    <td><div id="mydiv"></div></td>
+                </tr>
+            </table>
+            <button type="button" onclick="findSolution()">Find Solution</button>
+            <button type="button" onclick="Clear()">Clear</button>
+            
+        </form>
+    </body>
+</html>
