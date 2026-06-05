@@ -1,0 +1,85 @@
+<html>
+    <head>
+        <title> Tiêu đề trang</title>
+        <script>
+           function calculateTotal() {
+                if (myform.quantity1.value=="" || myform.quantity2.value=="" || myform.quantity3.value=="") {
+                    alert("Please input quantity for all items");
+                    return;
+                }
+                var quantity1 = parseFloat(myform.quantity1.value);
+                var quantity2 = parseFloat(myform.quantity2.value);
+                var quantity3 = parseFloat(myform.quantity3.value);
+                var price1 = parseFloat(price1.innerHTML);
+                var price2 = parseFloat(price2.innerHTML);
+                var price3 = parseFloat(price3.innerHTML);
+                var total1 = quantity1 * price1;
+                var total2 = quantity2 * price2;
+                var total3 = quantity3 * price3;
+                item1.innerHTML=total1.toFixed(2)+"$";
+                item2.innerHTML=total2.toFixed(2)+"$";
+                item3.innerHTML=total3.toFixed(2)+"$";
+                total.innerHTML=(total1+total2+total3).toFixed(2)+"$";
+            }
+            function UpdateItem(itemNumber) {
+                var quantity = parseFloat(myform["quantity"+itemNumber].value);
+                var price = 0;
+                if (itemNumber==1) {
+                    price=parseFloat(price1.innerHTML);
+                } else if (itemNumber==2) {
+                    price=parseFloat(price2.innerHTML);
+                } else if (itemNumber==3) {
+                    price=parseFloat(price3.innerHTML);
+                }
+                var total = quantity * price;
+                if (itemNumber==1) {
+                    item1.innerHTML=total.toFixed(2)+"$";
+                } else if (itemNumber==2) {
+                    item2.innerHTML=total.toFixed(2)+"$";
+                } else if (itemNumber==3) {
+                    item3.innerHTML=total.toFixed(2)+"$";
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <form name="myform">    
+           <table border="1">
+                <tr>
+                    <td>Part Number</td>
+                    <td>Description</td>
+                    <td>Price</td>
+                    <td>Quantity</td>
+                    <td>Item table</td>
+                </tr>
+                <tr>
+                    <td>C112</td>
+                    <td>Mouse</td>
+                    <td id="price1">19.95$</td>
+                    <td><input type="number" name="quantity1" min="0" value="0" onchange="UpdateItem(1)"></td>
+                    <td><div id="item1"></div></td>     
+                </tr>
+                <tr>
+                    <td>B124</td>
+                    <td>Keyboard US</td>
+                    <td id="price2">29.95$</td>
+                    <td><input type="number" name="quantity2" min="0" value="0" onchange="UpdateItem(2)"></td>
+                    <td><div id="item2"></div></td>
+                </tr>
+                <tr>
+                    <td>U125</td>
+                    <td>USB KingMax</td>
+                    <td id="price3">39.95$</td>
+                    <td><input type="number" name="quantity3" min="0" value="0" onchange="UpdateItem(3)"></td>
+                    <td><div id="item3"></div></td>
+                </tr>
+                <hr>
+                <tr>
+                    <td colspan="4" style="text-align:right">Total</td>
+                    <td><div id="total"></div></td>
+                </tr>
+           </table>
+              <button type="button" onclick="calculateTotal()">Calculate Total</button>
+        </form>
+    </body>
+</html> 
